@@ -19,5 +19,6 @@ public class Producto {
     @NonNull private Double precio;
     private String proveedorID;
     private String nombreProveedor;
+    private Double almacenados;
 
 }

@@ -18,5 +18,6 @@ public class ProductoDTO {
     @NonNull private Double precio;
     private String proveedorID;
     private String nombreProveedor;
+    private Double almacenados;
 
 }

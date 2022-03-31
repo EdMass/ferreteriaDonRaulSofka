@@ -1,5 +1,6 @@
 package com.example.ferreteriaDonRaulSofka.Services;
 
+import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Model.Producto;
 import com.example.ferreteriaDonRaulSofka.Repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class ProductoServices {
                     p.setNombre(producto.getNombre());
                     p.setPrecio(producto.getPrecio());
                     p.setProveedorID(producto.getProveedorID());
+                    p.setAlmacenados(producto.getAlmacenados());
                     return save(p);
                 })
                 .switchIfEmpty(Mono.empty());

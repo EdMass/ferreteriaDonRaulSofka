@@ -19,8 +19,7 @@ public class Factura {
     @Id
     private Integer id;
     private LocalDate fecha;
-    private String nombreCliente;
-    private String nombreProveedor;
-    private Integer total;
-    private HashMap<Producto, Integer> listaProductos;
+    @NonNull private String nombreCliente;
+    @NonNull private Integer total;
+    @NonNull private HashMap<String, Integer> listaProductos;
 }
