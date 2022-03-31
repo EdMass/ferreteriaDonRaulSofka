@@ -6,6 +6,7 @@ import com.example.ferreteriaDonRaulSofka.Services.ProveedorServices;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -40,4 +41,20 @@ public class ProveedorController {
                 .flatMap(c -> Mono.just(mapper.map(c, ProveedorDTO.class)));
         return proveedorDTOMono;
     }
+
+    @PutMapping("/proveedor/{id}")
+    private Mono<ResponseEntity<Proveedor>> update(@PathVariable("id") String id, @RequestBody ProveedorDTO proveedorDTO) {
+        var proveedor = mapper.map(proveedorDTO, Proveedor.class);
+        return this.proveedorServices.update(id, proveedor)
+                .flatMap(c1 -> Mono.just(ResponseEntity.ok(c1)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
+    @DeleteMapping("/proveedor/{id}")
+    private Mono<ResponseEntity<Proveedor>> delete(@PathVariable("id") String id) {
+        return this.proveedorServices.delete(id)
+                .flatMap(p -> Mono.just(ResponseEntity.ok(p)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
 }

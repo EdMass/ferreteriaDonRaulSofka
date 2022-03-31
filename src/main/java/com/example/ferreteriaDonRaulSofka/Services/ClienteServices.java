@@ -42,6 +42,4 @@ public class ClienteServices {
                 .flatMap(p -> this.clienteRepository.deleteById(p.getId()).thenReturn(p));
     }
 
-
-
 }

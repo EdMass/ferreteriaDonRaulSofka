@@ -1,6 +1,5 @@
 package com.example.ferreteriaDonRaulSofka.Services;
 
-import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Model.Proveedor;
 import com.example.ferreteriaDonRaulSofka.Repository.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +22,22 @@ public class ProveedorServices {
 
     public Mono<Proveedor> findById(String id) {
         return this.proveedorRepository.findById(id);
+    }
+
+    public Mono<Proveedor> update(String id, Proveedor proveedor) {
+        return this.proveedorRepository.findById(id)
+                .flatMap(p -> {
+                    p.setId(proveedor.getId());
+                    p.setCelular(proveedor.getCelular());
+                    p.setNombre(proveedor.getNombre());
+                    return save(p);
+                })
+                .switchIfEmpty(Mono.empty());
+    }
+
+    public Mono<Proveedor> delete(String id) {
+        return this.proveedorRepository
+                .findById(id)
+                .flatMap(p -> this.proveedorRepository.deleteById(p.getId()).thenReturn(p));
     }
 }
