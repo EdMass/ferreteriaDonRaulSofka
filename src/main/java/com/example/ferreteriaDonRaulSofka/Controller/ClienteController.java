@@ -50,4 +50,12 @@ public class ClienteController {
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
+    @DeleteMapping("/cliente/{id}")
+    private Mono<ResponseEntity<Cliente>> delete(@PathVariable("id") String id) {
+        return this.clienteServices.delete(id)
+                .flatMap(c -> Mono.just(ResponseEntity.ok(c)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
+
 }

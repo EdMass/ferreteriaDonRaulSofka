@@ -3,7 +3,10 @@ package com.example.ferreteriaDonRaulSofka.Services;
 import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -33,5 +36,13 @@ public class ClienteServices {
                 })
                 .switchIfEmpty(Mono.empty());
     }
+
+    public Mono<Cliente> delete(String id) {
+        return this.clienteRepository
+                .findById(id)
+                .flatMap(p -> this.clienteRepository.deleteById(p.getId()).thenReturn(p));
+    }
+
+
 
 }
