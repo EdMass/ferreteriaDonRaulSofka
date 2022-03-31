@@ -19,5 +19,5 @@ public class FacturaDTO {
     private String nombreCliente;
     private String nombreProveedor;
     private Integer total;
-    private HashMap<ProductoDTO, Integer> listaProductos;
+    private HashMap<String, Integer> listaProductos;
 }
