@@ -10,13 +10,12 @@ import java.util.HashMap;
 @Document(collection = "volante")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Getter
 @Setter
 @EqualsAndHashCode
 public class Volante {
     @Id
     private String id;
-    private HashMap<Producto, Integer> listaInventario;
-    private LocalDate fecha;
+    @NonNull private HashMap<String, Integer> listaInventario;
+    @NonNull private LocalDate fecha;
 }

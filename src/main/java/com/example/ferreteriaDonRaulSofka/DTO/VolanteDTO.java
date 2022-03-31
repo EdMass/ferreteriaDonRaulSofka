@@ -15,6 +15,6 @@ import java.util.HashMap;
 public class VolanteDTO {
     @Id
     private String id;
-    private HashMap<ProductoDTO, Integer> listaInventario;
+    private HashMap<String, Integer> listaInventario;
     private LocalDate fecha;
 }
