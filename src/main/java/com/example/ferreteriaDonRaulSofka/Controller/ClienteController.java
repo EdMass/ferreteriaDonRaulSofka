@@ -46,7 +46,7 @@ public class ClienteController {
     private Mono<ResponseEntity<Cliente>> update(@PathVariable("id") String id, @RequestBody ClienteDTO clienteDTO) {
         var cliente = mapper.map(clienteDTO, Cliente.class);
         return this.clienteServices.update(id, cliente)
-                .flatMap(citasDTOReactiva1 -> Mono.just(ResponseEntity.ok(citasDTOReactiva1)))
+                .flatMap(c1 -> Mono.just(ResponseEntity.ok(c1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 

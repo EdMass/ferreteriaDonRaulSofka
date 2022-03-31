@@ -16,6 +16,7 @@ public class Producto {
     @Id
     @NonNull private String id;
     @NonNull private String nombre;
+    @NonNull private Double precio;
     private String proveedorID;
     private String nombreProveedor;
 

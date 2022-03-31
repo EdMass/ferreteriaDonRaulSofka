@@ -3,10 +3,7 @@ package com.example.ferreteriaDonRaulSofka.Services;
 import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -32,6 +29,8 @@ public class ClienteServices {
                 .flatMap(c -> {
                     c.setCelular(cliente.getCelular());
                     c.setNombre(cliente.getNombre());
+
+
                     return save(c);
                 })
                 .switchIfEmpty(Mono.empty());
