@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
 public interface VendedorRepository extends ReactiveMongoRepository<Vendedor, String> {
-    Flux<Vendedor> findByIdvendedor(String idVendedor);
+    Flux<Vendedor> findByIdVendedor(String idVendedor);
 }

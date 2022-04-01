@@ -42,6 +42,12 @@ public class ClienteController {
         return cliente;
     }
 
+    @GetMapping("/cliente/{idCliente}/byidCliente")
+    private Flux<ClienteDTO> findAllByidPaciente(@PathVariable("idCliente") String idCliente) {
+        return this.clienteServices.findByIdCliente(idCliente)
+                .flatMap(c -> Mono.just(mapper.map(c, ClienteDTO.class)));
+    }
+
     @PutMapping("/cliente/{id}")
     private Mono<ResponseEntity<Cliente>> update(@PathVariable("id") String id, @RequestBody ClienteDTO clienteDTO) {
         var cliente = mapper.map(clienteDTO, Cliente.class);
