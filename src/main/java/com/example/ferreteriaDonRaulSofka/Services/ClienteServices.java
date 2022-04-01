@@ -29,8 +29,7 @@ public class ClienteServices {
                 .flatMap(c -> {
                     c.setCelular(cliente.getCelular());
                     c.setNombre(cliente.getNombre());
-
-
+                    c.setIdCliente(cliente.getIdCliente());
                     return save(c);
                 })
                 .switchIfEmpty(Mono.empty());

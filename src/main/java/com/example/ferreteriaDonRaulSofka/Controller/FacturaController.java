@@ -6,6 +6,7 @@ import com.example.ferreteriaDonRaulSofka.Services.FacturaServices;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -38,5 +39,12 @@ public class FacturaController {
         var facturaDTOMono = this.facturaServices.findById(id)
                 .flatMap(c -> Mono.just(mapper.map(c, FacturaDTO.class)));
         return facturaDTOMono;
+    }
+
+    @DeleteMapping("/factura/{id}")
+    private Mono<ResponseEntity<Factura>> delete(@PathVariable("id") String id) {
+        return this.facturaServices.delete(id)
+                .flatMap(f -> Mono.just(ResponseEntity.ok(f)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 }

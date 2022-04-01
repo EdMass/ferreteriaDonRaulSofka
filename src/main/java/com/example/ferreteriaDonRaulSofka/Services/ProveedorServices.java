@@ -30,6 +30,7 @@ public class ProveedorServices {
                     p.setId(proveedor.getId());
                     p.setCelular(proveedor.getCelular());
                     p.setNombre(proveedor.getNombre());
+                    p.setIdProveedor(proveedor.getIdProveedor());
                     return save(p);
                 })
                 .switchIfEmpty(Mono.empty());

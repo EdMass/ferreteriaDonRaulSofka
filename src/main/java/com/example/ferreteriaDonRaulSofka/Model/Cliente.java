@@ -16,5 +16,6 @@ public class Cliente {
     private String id;
     @NonNull private String nombre;
     private String celular;
+    @NonNull private String idCliente;
 
 }

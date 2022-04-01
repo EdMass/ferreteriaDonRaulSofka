@@ -30,6 +30,7 @@ public class VendedorServices {
                     v.setId(vendedor.getId());
                     v.setCelular(vendedor.getCelular());
                     v.setNombre(vendedor.getNombre());
+                    v.setIdVendedor(vendedor.getIdVendedor());
                     return save(v);
                 })
                 .switchIfEmpty(Mono.empty());

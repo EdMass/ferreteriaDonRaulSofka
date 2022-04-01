@@ -13,7 +13,8 @@ public class ClienteDTO {
 
     @Id
     private String id;
-    private String nombre;
+    @NonNull private String nombre;
     private String celular;
+    @NonNull private String idCliente;
 
 }

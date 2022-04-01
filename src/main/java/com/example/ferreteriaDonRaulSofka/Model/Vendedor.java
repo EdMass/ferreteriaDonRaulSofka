@@ -17,5 +17,6 @@ public class Vendedor {
         private String id;
         @NonNull private String nombre;
         private String celular;
+        @NonNull private String idVendedor;
 
 }

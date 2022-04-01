@@ -17,9 +17,12 @@ import java.util.HashMap;
 public class Factura {
 
     @Id
-    private Integer id;
+    private String id;
+    private Integer consecutivo;
     private LocalDate fecha;
     @NonNull private String nombreCliente;
+    @NonNull private String idCliente;
     @NonNull private Integer total;
     @NonNull private HashMap<String, Integer> listaProductos;
+
 }
