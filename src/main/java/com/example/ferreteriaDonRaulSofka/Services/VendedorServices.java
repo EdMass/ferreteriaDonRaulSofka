@@ -1,5 +1,6 @@
 package com.example.ferreteriaDonRaulSofka.Services;
 
+import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Model.Vendedor;
 import com.example.ferreteriaDonRaulSofka.Repository.VendedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class VendedorServices {
 
     public Mono<Vendedor> findById(String id) {
         return this.vendedorRepository.findById(id);
+    }
+
+    public Flux<Vendedor> findByIdCliente(String idVendedor){
+        return this.vendedorRepository.findByIdVendedor(idVendedor);
     }
 
     public Mono<Vendedor> update(String id, Vendedor vendedor) {
