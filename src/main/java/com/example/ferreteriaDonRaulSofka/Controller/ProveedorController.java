@@ -1,6 +1,7 @@
 package com.example.ferreteriaDonRaulSofka.Controller;
 
 import com.example.ferreteriaDonRaulSofka.DTO.ProveedorDTO;
+import com.example.ferreteriaDonRaulSofka.DTO.VendedorDTO;
 import com.example.ferreteriaDonRaulSofka.Model.Proveedor;
 import com.example.ferreteriaDonRaulSofka.Services.ProveedorServices;
 import org.modelmapper.ModelMapper;
@@ -40,6 +41,12 @@ public class ProveedorController {
         var proveedorDTOMono = this.proveedorServices.findById(id)
                 .flatMap(c -> Mono.just(mapper.map(c, ProveedorDTO.class)));
         return proveedorDTOMono;
+    }
+
+    @GetMapping("/proveedor/{idProveedor}/byidProveedor")
+    private Flux<ProveedorDTO> findAllByidProveedor(@PathVariable("idProveedor") String idProveedor) {
+        return this.proveedorServices.findByIdCliente(idProveedor)
+                .flatMap(v -> Mono.just(mapper.map(v, ProveedorDTO.class)));
     }
 
     @PutMapping("/proveedor/{id}")

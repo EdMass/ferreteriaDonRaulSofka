@@ -1,6 +1,5 @@
 package com.example.ferreteriaDonRaulSofka.Services;
 
-import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Model.Vendedor;
 import com.example.ferreteriaDonRaulSofka.Repository.VendedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -24,6 +24,10 @@ public class ProveedorServices {
         return this.proveedorRepository.findById(id);
     }
 
+    public Flux<Proveedor> findByIdCliente(String idProveedor){
+        return this.proveedorRepository.findByIdProveedor(idProveedor);
+    }
+
     public Mono<Proveedor> update(String id, Proveedor proveedor) {
         return this.proveedorRepository.findById(id)
                 .flatMap(p -> {
