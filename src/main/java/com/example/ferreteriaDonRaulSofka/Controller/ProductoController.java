@@ -1,7 +1,6 @@
 package com.example.ferreteriaDonRaulSofka.Controller;
 
 import com.example.ferreteriaDonRaulSofka.DTO.ProductoDTO;
-import com.example.ferreteriaDonRaulSofka.Model.Cliente;
 import com.example.ferreteriaDonRaulSofka.Model.Producto;
 import com.example.ferreteriaDonRaulSofka.Services.ProductoServices;
 import org.modelmapper.ModelMapper;
