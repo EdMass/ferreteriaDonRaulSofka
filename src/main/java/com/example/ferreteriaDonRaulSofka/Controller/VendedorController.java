@@ -1,6 +1,5 @@
 package com.example.ferreteriaDonRaulSofka.Controller;
 
-import com.example.ferreteriaDonRaulSofka.DTO.ClienteDTO;
 import com.example.ferreteriaDonRaulSofka.DTO.VendedorDTO;
 import com.example.ferreteriaDonRaulSofka.Model.Vendedor;
 import com.example.ferreteriaDonRaulSofka.Services.VendedorServices;
@@ -13,6 +12,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class VendedorController {
     @Autowired
     VendedorServices vendedorServices;

@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProductoDTO {
 
     @Id
-    @NonNull private String id;
+    private String id;
     @NonNull private String nombre;
     @NonNull private Double precio;
     private String proveedorID;
