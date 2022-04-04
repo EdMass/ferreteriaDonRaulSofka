@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClienteController {
     @Autowired
     ClienteServices clienteServices;

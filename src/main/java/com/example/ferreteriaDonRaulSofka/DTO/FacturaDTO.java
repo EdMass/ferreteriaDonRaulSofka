@@ -1,10 +1,12 @@
 package com.example.ferreteriaDonRaulSofka.DTO;
 
+import com.example.ferreteriaDonRaulSofka.Model.Producto;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +22,5 @@ public class FacturaDTO {
     @NonNull private String nombreCliente;
     @NonNull private String idCliente;
     @NonNull private Integer total;
-    @NonNull private HashMap<String, Integer> listaProductos;
+    @NonNull private List<Producto> listaProductos;
 }

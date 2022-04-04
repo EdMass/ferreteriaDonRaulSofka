@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.HashMap;
+import java.util.List;
 
 @Document(collection = "volante")
 @AllArgsConstructor
@@ -16,6 +16,6 @@ import java.util.HashMap;
 public class Volante {
     @Id
     private String id;
-    @NonNull private HashMap<String, Integer> listaInventario;
+    @NonNull private List<Producto> listaInventario;
     @NonNull private LocalDate fecha;
 }
